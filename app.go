@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net"
     "log"
+    "os/exec"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -66,6 +67,7 @@ func main() {
         return nil
     })
 
+    exec.Command("xdg-open", "http://localhost:3000/static/index.html").Run()
 
     log.Fatal(app.Listen(":3000"))
 }
