@@ -1,0 +1,139 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>File uploader</title>
+<head>
+</head>
+<body>
+<h4>
+    This is a simple server to upload your files to your computer on the same wifi network.
+    Enjoy
+</h4>
+
+<h3>QR code</h3>
+<center>
+    <div id="qrcode"></div>
+</center>
+
+<h3>Or visit</h3>
+<div id="ip"></div>
+
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<script type="text/javascript">
+    document.getElementById('fileInput')
+
+    const changeFile = () => {
+        const NAME = document.getElementById('fileInput');
+        // console.log(NAME);
+        console.log('Selected file: ' + NAME.files.item(0).name);
+        document.getElementById('fileText').innerHTML = NAME.files.item(0).name;
+    }
+
+    fetch('/api/ip')
+        .then(response => response.text())
+        .then(data => {
+            const URL = `http://${data}:3000`;
+            new QRCode(document.getElementById("qrcode"), URL);
+            document.getElementById("ip").innerHTML = `<a href=${URL}>${URL}</a>`;
+        })
+</script>
+
+<style>
+
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        width: 100%;
+    }
+
+    #wrapper {
+        width: 93px; /*play with this value */
+        height: 28px; /*play with this value */
+        background: url('browseBtn.png') 0 0 no-repeat;
+        border: none;
+        overflow: hidden;
+    }
+
+    #browse {
+        margin-left: -145px; /*play with this value */
+        opacity: 0; /* set to .5 or something so you can better position it as an overlay then back to zero again after you're done */
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    }
+</style>
+
+
+<style>
+    .button {
+        height: 90px;
+        /*background-color: #a29bfe;*/
+        width: 95vw;
+        color: white;
+        display: inline-block;
+        background: #1ce01c;
+        border: none;
+        padding: 7px 15px;
+        font-weight: 700;
+        border-radius: 3px;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 10pt;
+    }
+    input[type=file]::file-selector-button  {
+        /*border: 2px solid #6c5ce7;*/
+        /*padding: .2em .4em;*/
+        /*border-radius: .9em;*/
+        height: 90px;
+        /*background-color: #a29bfe;*/
+        width: 95vw;
+        color: white;
+        display: inline-block;
+        background: #1CB6E0;
+        border: none;
+        padding: 7px 15px;
+        font-weight: 700;
+        border-radius: 3px;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 10pt;
+
+
+    }
+
+    input[type=file]::file-selector-button:hover {
+        background-color: #81ecec;
+        border: 2px solid #00cec9;
+    }
+
+
+    /*.choose::-webkit-file-upload-button {*/
+    /*    color: white;*/
+    /*    display: inline-block;*/
+    /*    background: #1CB6E0;*/
+    /*    border: none;*/
+    /*    padding: 7px 15px;*/
+    /*    font-weight: 700;*/
+    /*    border-radius: 3px;*/
+    /*    white-space: nowrap;*/
+    /*    cursor: pointer;*/
+    /*    font-size: 10pt;*/
+    /*}*/
+
+    /*.button {*/
+    /*    color: white;*/
+    /*    display: inline-block;*/
+    /*    background: #1CB6E0;*/
+    /*    border: none;*/
+    /*    padding: 7px 15px;*/
+    /*    font-weight: 700;*/
+    /*    border-radius: 3px;*/
+    /*    white-space: nowrap;*/
+    /*    cursor: pointer;*/
+    /*    font-size: 10pt;*/
+    /*}*/
+</style>
+
+</body>
+</html>
