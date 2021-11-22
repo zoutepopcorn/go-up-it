@@ -20,8 +20,8 @@
     <br>
     <v-card flat>
       <div v-for="(file, i) of fileInfo">
-        <v-chip class="mb-1 mt-2" color="blue" text-color="white" label small>
-          <v-icon left>
+        <v-chip class="mb-1 mt-2" color="blue darken-2" text-color="white" label small>
+          <v-icon small left>
             mdi-paperclip
           </v-icon>
           {{ file.name }}
@@ -31,8 +31,6 @@
         </v-progress-linear>
       </div>
     </v-card>
-
-
     <!--    <v-progress-linear v-model="uploadPercentage" color="blue" height="19" dark>-->
     <!--      <strong>{{ uploadPercentage }} {{ uploadPercentage[i] ? "%" : "" }}</strong>-->
     <!--    </v-progress-linear>-->

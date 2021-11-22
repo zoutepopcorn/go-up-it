@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "bwip-js": "^3.0.4",
     "core-js": "^3.6.5",
+    "qrcode": "^1.4.4",
     "vue": "^2.6.11",
     "vuetify": "^2.4.0"
   },
