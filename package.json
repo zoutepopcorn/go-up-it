@@ -1,0 +1,25 @@
+{
+  "name": "go_embed",
+  "version": "1.0.0",
+  "description": "A simple webserver to upload files over wifi, for example from a phone.  You can also transfer big files like 5 Gb.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "windows": "env GOOS=windows GOARCH=amd64 go build -o output/windowsUpload.exe app.go",
+    "linux": "env GOOS=linux GOARCH=amd64 go build -o output/linuxUpload app.go",
+    "mac": "env GOOS=darwin GOARCH=amd64 go build -o output/macUpload app.go",
+    "all": "npm run windows && npm run linux && npm run mac"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoutepopcorn/go-up-it.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zoutepopcorn/go-up-it/issues"
+  },
+  "homepage": "https://github.com/zoutepopcorn/go-up-it#readme"
+}
